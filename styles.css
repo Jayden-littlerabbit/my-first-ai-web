@@ -231,6 +231,8 @@ button.ghost:hover { background: #f1f5f9; }
 
 .panel + .panel { margin-top: 18px; }
 
+.table-wrap { overflow-x: auto; }
+
 .standings {
   width: 100%;
   border-collapse: collapse;
