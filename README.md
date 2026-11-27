@@ -54,8 +54,14 @@ my-first-ai-web/
 ├── demo.html       # 练习 1.1 的演示页
 ├── README.md       # 本文件
 ├── setup-notes.md  # 练习 1.1 的工具与费用记录
-└── project-notes.md# 项目需求、设计选择、测试与 AI 使用说明
+├── project-notes.md# 项目需求、设计选择、测试与 AI 使用说明
+└── screenshots/    # 运行截图（index.png / demo.png）
 ```
+
+## 截图
+
+- `screenshots/index.png`：球迷小站首页 —— 赛程、积分榜、录入表单
+- `screenshots/demo.png`：练习 1.1 的演示页
 
 ## 版本里程碑
 
