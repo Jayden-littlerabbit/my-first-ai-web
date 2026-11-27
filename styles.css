@@ -154,6 +154,81 @@ select:focus-visible {
   font-size: 12px;
 }
 
+.entry-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.entry-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.entry-form input {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.entry-form input:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 1px;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button.primary,
+button.ghost {
+  padding: 9px 18px;
+  font: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button.primary {
+  color: #fff;
+  background: var(--brand);
+  border: 0;
+}
+
+button.primary:hover { background: #1d4ed8; }
+
+button.ghost {
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+button.ghost:hover { background: #f1f5f9; }
+
+.form-msg {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.form-msg.ok { background: #e9f9ef; color: #1a7a45; }
+.form-msg.error { background: #fdecea; color: #b42318; }
+
+@media (max-width: 640px) {
+  .entry-form { grid-template-columns: repeat(2, 1fr); }
+}
+
 .panel + .panel { margin-top: 18px; }
 
 .standings {
