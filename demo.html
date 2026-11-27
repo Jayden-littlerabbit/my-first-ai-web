@@ -65,6 +65,11 @@
   button:hover { background: #1d4ed8; }
   button:active { transform: translateY(1px); }
   button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+  .counter {
+    margin: 18px 0 0;
+    font-size: 13px;
+    color: #7b8794;
+  }
 </style>
 </head>
 <body>
@@ -73,16 +78,21 @@
     <p class="hint">纯 HTML + CSS + JavaScript，无任何外部依赖</p>
     <p id="message" role="status" aria-live="polite">这是初始消息：点击下方按钮可以改变它。</p>
     <button id="changeBtn" type="button">改变消息</button>
+    <p id="counter" class="counter">切换次数：0</p>
   </main>
 
 <script>
   (function () {
     var messageEl = document.getElementById('message');
     var buttonEl = document.getElementById('changeBtn');
+    var counterEl = document.getElementById('counter');
     var changed = false;
+    var count = 0;
 
     buttonEl.addEventListener('click', function () {
       changed = !changed;
+      count += 1;
+      counterEl.textContent = '切换次数：' + count;
       if (changed) {
         messageEl.textContent = '消息已改变！再次点击按钮即可恢复。';
         messageEl.classList.add('is-changed');
