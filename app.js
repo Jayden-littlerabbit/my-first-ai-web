@@ -29,6 +29,54 @@
     });
   }
 
+  // 纯函数：根据已结束的比赛计算积分榜
+  function computeStandings(list, teams) {
+    var table = {};
+    teams.forEach(function (name) {
+      table[name] = { team: name, played: 0, win: 0, draw: 0, loss: 0, gf: 0, ga: 0 };
+    });
+
+    list.filter(function (m) { return m.played === true; }).forEach(function (m) {
+      var home = table[m.home];
+      var away = table[m.away];
+      if (!home || !away) return;
+
+      home.played += 1;
+      away.played += 1;
+      home.gf += m.homeScore;
+      home.ga += m.awayScore;
+      away.gf += m.awayScore;
+      away.ga += m.homeScore;
+
+      if (m.homeScore > m.awayScore) {
+        home.win += 1;
+        away.loss += 1;
+      } else if (m.homeScore < m.awayScore) {
+        away.win += 1;
+        home.loss += 1;
+      } else {
+        home.draw += 1;
+        away.draw += 1;
+      }
+    });
+
+    var rows = teams.map(function (name) { return table[name]; });
+    rows.forEach(function (row) {
+      row.points = row.win * 3 + row.draw;
+      row.diff = row.gf - row.ga;
+    });
+
+    rows.sort(function (a, b) {
+      if (b.points !== a.points) return b.points - a.points;
+      if (b.diff !== a.diff) return b.diff - a.diff;
+      if (b.gf !== a.gf) return b.gf - a.gf;
+      return a.team.localeCompare(b.team, 'zh');
+    });
+
+    rows.forEach(function (row, index) { row.rank = index + 1; });
+    return rows;
+  }
+
   function formatScore(m) {
     return m.played ? m.homeScore + ' : ' + m.awayScore : '—';
   }
@@ -53,6 +101,29 @@
 
     countEl.textContent = '共 ' + visible.length + ' 场';
     emptyEl.hidden = visible.length !== 0;
+
+    renderStandings();
+  }
+
+  function renderStandings() {
+    var rows = computeStandings(MATCHES, TEAMS);
+    var body = document.getElementById('standingsBody');
+
+    body.innerHTML = rows.map(function (r) {
+      var diff = r.diff > 0 ? '+' + r.diff : String(r.diff);
+      return '<tr>' +
+        '<td class="rank">' + r.rank + '</td>' +
+        '<td class="team-name">' + r.team + '</td>' +
+        '<td>' + r.played + '</td>' +
+        '<td>' + r.win + '</td>' +
+        '<td>' + r.draw + '</td>' +
+        '<td>' + r.loss + '</td>' +
+        '<td>' + r.gf + '</td>' +
+        '<td>' + r.ga + '</td>' +
+        '<td>' + diff + '</td>' +
+        '<td class="pts">' + r.points + '</td>' +
+      '</tr>';
+    }).join('');
   }
 
   function fillTeamOptions() {
@@ -85,6 +156,7 @@
     TEAMS: TEAMS,
     MATCHES: MATCHES,
     filterMatches: filterMatches,
+    computeStandings: computeStandings,
     state: state,
     render: render
   };

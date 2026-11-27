@@ -37,6 +37,30 @@
       <ul id="matchList" class="match-list"></ul>
       <p id="emptyHint" class="empty" hidden>没有符合筛选条件的比赛。</p>
     </section>
+
+    <section class="panel" aria-labelledby="standingsTitle">
+      <div class="panel-head">
+        <h2 id="standingsTitle">积分榜</h2>
+        <span class="count">按积分 → 净胜球 → 进球排序</span>
+      </div>
+      <table class="standings">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">球队</th>
+            <th scope="col">场次</th>
+            <th scope="col">胜</th>
+            <th scope="col">平</th>
+            <th scope="col">负</th>
+            <th scope="col">进</th>
+            <th scope="col">失</th>
+            <th scope="col">净胜</th>
+            <th scope="col">积分</th>
+          </tr>
+        </thead>
+        <tbody id="standingsBody"></tbody>
+      </table>
+    </section>
   </main>
 
   <footer class="foot">示例数据仅用于练习，不是真实赛果。</footer>

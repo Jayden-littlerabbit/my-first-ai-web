@@ -154,6 +154,48 @@ select:focus-visible {
   font-size: 12px;
 }
 
+.panel + .panel { margin-top: 18px; }
+
+.standings {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.standings th,
+.standings td {
+  padding: 10px 6px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.standings thead th {
+  border-top: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.standings td.team-name {
+  text-align: left;
+  font-weight: 500;
+}
+
+.standings td.rank { color: var(--muted); }
+
+.standings td.pts {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .standings { font-size: 12px; }
+  .standings th,
+  .standings td { padding: 8px 3px; }
+}
+
 @media (max-width: 560px) {
   .match { grid-template-columns: 76px 1fr 58px 1fr; }
   .badge { display: none; }
