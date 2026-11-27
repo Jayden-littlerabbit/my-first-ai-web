@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>球迷小站 · 赛程与积分榜</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>球迷小站</h1>
+    <p class="subtitle">查赛程、看积分榜、记比分 —— 纯本地网页，不用登录</p>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="scheduleTitle">
+      <div class="panel-head">
+        <h2 id="scheduleTitle">赛程</h2>
+        <span id="matchCount" class="count">共 0 场</span>
+      </div>
+
+      <div class="toolbar">
+        <label for="teamFilter">球队
+          <select id="teamFilter">
+            <option value="all">全部球队</option>
+          </select>
+        </label>
+        <label for="statusFilter">状态
+          <select id="statusFilter">
+            <option value="all">全部</option>
+            <option value="played">已结束</option>
+            <option value="upcoming">未开始</option>
+          </select>
+        </label>
+      </div>
+
+      <ul id="matchList" class="match-list"></ul>
+      <p id="emptyHint" class="empty" hidden>没有符合筛选条件的比赛。</p>
+    </section>
+  </main>
+
+  <footer class="foot">示例数据仅用于练习，不是真实赛果。</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
