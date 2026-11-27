@@ -64,6 +64,7 @@ my-first-ai-web/
 
 - `screenshots/index.png`：球迷小站首页 —— 赛程、积分榜、录入表单
 - `screenshots/demo.png`：练习 1.1 的演示页
+- `screenshots/pages.png`：GitHub Pages 线上访问效果（部署后截图）
 
 ## 版本里程碑
 
