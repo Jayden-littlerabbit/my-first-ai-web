@@ -61,6 +61,37 @@
         <tbody id="standingsBody"></tbody>
       </table>
     </section>
+
+    <section class="panel" aria-labelledby="entryTitle">
+      <div class="panel-head">
+        <h2 id="entryTitle">录入比赛</h2>
+        <span class="count">只保存在本机浏览器</span>
+      </div>
+
+      <form id="matchForm" class="entry-form" novalidate>
+        <label for="homeTeam">主队
+          <select id="homeTeam"></select>
+        </label>
+        <label for="homeScore">主队比分
+          <input id="homeScore" type="number" min="0" max="99" step="1" inputmode="numeric" placeholder="0">
+        </label>
+        <label for="awayScore">客队比分
+          <input id="awayScore" type="number" min="0" max="99" step="1" inputmode="numeric" placeholder="0">
+        </label>
+        <label for="awayTeam">客队
+          <select id="awayTeam"></select>
+        </label>
+        <label for="matchDate">日期
+          <input id="matchDate" type="date">
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="primary">添加比赛</button>
+          <button type="button" id="resetBtn" class="ghost">恢复初始数据</button>
+        </div>
+      </form>
+
+      <p id="formMessage" class="form-msg" role="alert" hidden></p>
+    </section>
   </main>
 
   <footer class="foot">示例数据仅用于练习，不是真实赛果。</footer>
