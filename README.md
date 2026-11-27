@@ -9,8 +9,10 @@
 
 ## 在线访问
 
-- 球迷小站：`https://jayden-littlerabbit.github.io/my-first-ai-web/`（GitHub Pages 启用后生效）
-- 演示页：`https://jayden-littlerabbit.github.io/my-first-ai-web/demo.html`
+- 球迷小站：https://jayden-littlerabbit.github.io/my-first-ai-web/
+- 演示页：https://jayden-littlerabbit.github.io/my-first-ai-web/demo.html
+
+> 已部署在 GitHub Pages（main 分支根目录），打开即可使用，无需安装或登录。
 
 ## 球迷小站（index.html）
 
