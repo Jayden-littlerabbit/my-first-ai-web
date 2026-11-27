@@ -300,6 +300,10 @@
   fillTeamOptions('homeTeam');
   fillTeamOptions('awayTeam');
 
+  // 默认主客队不要是同一支
+  document.getElementById('homeTeam').value = TEAMS[0];
+  document.getElementById('awayTeam').value = TEAMS[1];
+
   var dateInput = document.getElementById('matchDate');
   if (dateInput && !dateInput.value) dateInput.value = today();
 
