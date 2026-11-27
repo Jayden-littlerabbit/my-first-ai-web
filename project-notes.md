@@ -94,7 +94,40 @@
 - **我做的**：提出选题与功能范围、审核 AI 给的 V1 计划、在浏览器里实际操作验收、审核 PR 并合并、核对文档与数据
 - **验证方式**：不只看 AI 说"通过"，而是自己打开页面点按、刷新、重置，并检查 GitHub 上的提交与文件
 
-## 8. 后续可以做什么（V2 想法，不属于本次范围）
+## 8. Git / GitHub 工作流记录（练习 1.2）
+
+### 一句话解释
+
+- **commit（提交）**：把暂存区里的改动保存成一个带说明文字的历史版本，随时可以回退。
+- **push（推送）**：把本地已经提交的版本上传到 GitHub 远程仓库，别人和线上 Pages 才能看到。
+- **pull（拉取）**：把远程仓库的最新提交下载下来并合并到本地当前分支，让本地和远程保持一致。
+
+### 提示词 — AI 执行 — 我的检查
+
+| # | 我给 AI 的提示词（大意） | AI 执行的操作 | 我的检查记录 |
+| --- | --- | --- | --- |
+| 1 | 生成一个本地网页，有标题和一个切换文字的按钮，无外部依赖 | 创建 `demo.html`，用脚本模拟点击验证切换逻辑 | 双击打开，点按钮文字变化、计数递增，断网也能用 |
+| 2 | 检查系统与 Git、配置 GitHub 授权 | 检测到 macOS、Git 2.50.1；生成 SSH 密钥、测试 `ssh -T` | 自己在浏览器把公钥加到 GitHub，终端显示 `successfully authenticated` |
+| 3 | 新建仓库、提交并推送网页 | `git init`、`commit`、`remote add`、`push` | 网页上看到 `demo.html` 和提交 `af037f9` |
+| 4 | 新建分支开发一个新功能 | 建 `feature/switch-counter`，给按钮加“切换次数” | PR #2 的 Files changed 只有 `demo.html` +10 −0，自己点合并 |
+| 5 | 做足球项目的赛程和筛选 | 建 `feature/football-v1`，写 `index.html`/`styles.css`/`app.js` | 打开页面切换球队与状态，计数和列表都跟着变，合并 PR #1 |
+| 6 | 加积分榜 | 写 `computeStandings`，按积分→净胜球→进球排序 | 对照手算：海港 7 分、国安 3 分、津门虎 0 分，一致，合并 PR #3 |
+| 7 | 支持自己录入比赛并保存 | 加表单、校验、localStorage、恢复初始数据 | 录入「国安 3:1 申花」积分变化正确；刷新后仍在；重置回 9 场，合并 PR #4 |
+| 8 | 补齐 README、笔记与截图 | 写三份文档、生成页面截图、修默认主客队重复 | 逐份核对内容与截图，合并 PR #5 |
+| 9 | 部署在线访问 | 指导开启 GitHub Pages，核对线上页面 | 线上地址返回 200，页面标题、赛程、积分榜均正常 |
+
+### 相关链接
+
+- 仓库：https://github.com/Jayden-littlerabbit/my-first-ai-web
+- 在线网页：https://jayden-littlerabbit.github.io/my-first-ai-web/
+- 首次提交：https://github.com/Jayden-littlerabbit/my-first-ai-web/commit/af037f9
+- PR #1（足球 v0.1）：https://github.com/Jayden-littlerabbit/my-first-ai-web/pull/1
+- PR #2（切换次数）：https://github.com/Jayden-littlerabbit/my-first-ai-web/pull/2
+- PR #3（积分榜）：https://github.com/Jayden-littlerabbit/my-first-ai-web/pull/3
+- PR #4（录入比赛）：https://github.com/Jayden-littlerabbit/my-first-ai-web/pull/4
+- PR #5（文档与截图）：https://github.com/Jayden-littlerabbit/my-first-ai-web/pull/5
+
+## 9. 后续可以做什么（V2 想法，不属于本次范围）
 
 - 支持自定义球队名称
 - 导出 / 导入比赛数据（JSON 文件）
